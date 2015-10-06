@@ -1,7 +1,87 @@
-@import 'buttons';
+/*doc
+---
+category: basics
+---
+Welcome to the Styleguide!
+*/
 
-$blue: #4DA5FF;
+@import 'normalize',
+        'bestPractices',
+        'type',
+        'buttons',
+        'lists';
 
-body{
-	color: $blue;
+$brand-primary: #4DA5FF; 
+
+code{
+  padding: 0.25rem;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.navbar{
+  background-color: $brand-primary;
+
+  text-align: right;
+
+  .brand-logo{
+    float: left;
+    padding: .75rem .5rem;
+  }
+
+  li{
+    display: inline-block;
+    padding: .75rem .5rem;
+  }
+
+  a, a:visited, a:focus, a:active, a:hover{
+    color: #fff;
+  }
+
+  a.active{
+    border-bottom: 2px solid #fff;
+  }
+}
+section{
+  box-sizing: border-box;
+}
+.sidebar{
+  width: 30%;
+  float: left;
+
+  padding: 1rem;
+}
+.content{
+  width: 70%;
+  float: left;
+
+  padding: 1rem;
+}
+
+.content-full{
+  padding: 1rem;
+}
+
+
+
+footer{
+  text-align: center;
+}
+
+.codeBlock{
+  margin: 1rem 0;
+  
+  .header{
+    background-color: #dedede;
+    padding: .5rem 1rem;
+  }
+  pre{
+    margin: 0;
+    max-width: 100%;
+    font-size: 0.875em;
+    background-color: #f1f2f2;
+    padding: 1rem;
+  }
 }

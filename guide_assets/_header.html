@@ -2,22 +2,26 @@
 <html>
   <head>
     <title>a brand new styleguide: <%= title %></title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
-    <div>
-      <nav>
-        <ul>
-        <% @categories.each do |category, file_name| %>
-          <li><a href="<%= file_name %>"><%= category %></a></li>
-        <% end %>
+      <nav class="navbar">
+        <a href="index.html" class="brand-logo">Styleguide</a>
+        <ul class="unstyled">
+        <% @categories.each do |category, file_name| %><% if file_name != 'index.html' %><li><a href="<%= file_name %>"<% if title == category %>class="active"<% end %>><%= category %></a></li><% end %><% end %>
         </ul>
       </nav>
-
-      <h1>a brand new style guide, it's super effective</h1>
-      <section class="content">
-        <ul>
-        <% @blocks.each do |b| %>
-          <li><a href="#<%= b[:name] %>"><%= b[:title] %></a></li>
-        <% end %>
-        </ul>
+      <% if @blocks.count > 1 %>
+        <section class="sidebar">
+          <nav>
+            <ul class="unstyled">
+              <% @blocks.each do |b| %>
+              <li><a href="#<%= b[:name] %>" class="local-link" ><%= b[:title] %></a></li>
+              <% end %>
+            </ul>
+          </nav>
+        </section>
+        <section class="content">
+      <% else %>
+        <section class="content-full">
+      <% end %>

@@ -54,6 +54,11 @@ module.exports = function(grunt) {
       sass: {
         files: '<%= project.sassDir %>/*.scss',
         tasks: ['sass', 'autoprefixer', 'hologram']
+      },
+
+      update: {
+        files: './guide_assets/*.html',
+        tasks: ['hologram']
       }
     }
   });
@@ -63,7 +68,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-hologram');
   
-  grunt.registerTask('build', ['sass']);
+  grunt.registerTask('build', ['sass', 'autoprefixer', 'hologram']);
   grunt.registerTask('default', ['build']);
   grunt.registerTask('watchme', ['build', 'watch']);
 }
